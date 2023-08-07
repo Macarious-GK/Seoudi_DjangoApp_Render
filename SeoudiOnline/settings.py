@@ -21,12 +21,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'django-insecure-x=r-_$6q-*8a5xbq1fv6ikh41+bejn7*4a)f37=9%f&3qoj@6)'
-SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+
+# SECRET_KEY = 'django-insecure-x=r-_$6q-*8a5xbq1fv6ikh41+bejn7*4a)f37=9%f&3qoj@6)'
+# DEBUG = True
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -86,6 +89,7 @@ DATABASES = {
 
 database_url = os.environ.get("DATABASE_URL")
 DATABASES ["default"] = dj_database_url.parse(database_url)
+# DATABASES ["default"] = dj_database_url.parse("postgres://seoudi_database_django_render_user:lqC50meGoDubrR6NIT9s7g2XyZ6UkfVb@dpg-cj8karcl975s73d4bqvg-a.oregon-postgres.render.com/seoudi_database_django_render")
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

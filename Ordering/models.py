@@ -8,3 +8,11 @@ class table1(models.Model):
     number = models.BigIntegerField()
     def __str__(self):
         return self.name
+    
+
+
+class Customer(models.Model):
+    name = models.CharField(max_length=225)
+    Phone = models.BigIntegerField()
+    def __str__(self):
+        return self.name
