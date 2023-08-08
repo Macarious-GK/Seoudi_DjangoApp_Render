@@ -20,7 +20,7 @@ class statusSerializer(serializers.ModelSerializer):
         fields = ['name']
 
 class OrderSerializer(serializers.ModelSerializer):
-    status = statusSerializer(read_only = True)
+    # status = statusSerializer(read_only = True)
 
     class Meta:
         model = Order_Details

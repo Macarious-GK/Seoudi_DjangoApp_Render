@@ -169,3 +169,17 @@ def order_UD(request, pk):
          return Response({'message':'this method is not supported'},status=405)
                 
 #  ----------------------------------------------
+# Get Status data
+@api_view(['GET'])
+@throttle_classes([AnonRateThrottle])
+def status_R(request, pk):
+    if request.method == 'GET':
+        try:
+            order = OrderStatus.objects.get(pk = pk)
+            serializer_order = statusSerializer(order)
+            return Response({'Status':serializer_order.data},200)
+        except OrderStatus.DoesNotExist:
+            return Response({'message': 'Status not found'}, status=404)
+    
+    else:
+         return Response({'message':'this method is not supported'},405)
