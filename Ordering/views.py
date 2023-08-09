@@ -183,3 +183,13 @@ def status_R(request, pk):
     
     else:
          return Response({'message':'this method is not supported'},405)
+    
+
+# Handeling Errors and Welcoming pages
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
+
+
+def welcoming_page(request):
+    return render(request, 'Welcome.html', status=200)

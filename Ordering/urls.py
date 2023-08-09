@@ -3,7 +3,12 @@ from Ordering.views import *
 from Ordering import views
 
 
+
+handler404 = 'Ordering.views.custom_404'
+
+
 urlpatterns = [
+    path('',views.welcoming_page, name = 'Welcome-page'),
     path('customers/',views.customer_CR, name= 'customers'),
     path('customers/<int:pk>/',views.customer_UD, name= 'customersid'),
     path('items/',views.item_CR, name= 'item-cr'),
