@@ -4,7 +4,7 @@ from Ordering import views
 
 
 
-handler404 = 'Ordering.views.custom_404'
+handler404 = 'SeoudiOnline.views.custom_404'
 
 
 urlpatterns = [
